@@ -1,12 +1,13 @@
+  <div id='calendar'></div>
 <div class="container">
-  <div class="row top-30">
+  {{!-- <div class="row top-30">
     <div class="col-md-2 col-sm-2">
       <a class="btn btn-default" href="/blog">Go to Blog</a>
     </div>
     <div class="col-md-2 col-sm-2">
       <a class="btn btn-default" href="/cms">New Post</a>
     </div>
-  </div>
+  </div> --}}
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="expense-container">
@@ -34,7 +35,7 @@
 
   <div class="form-group">
     <label for="inputDate">Date</label>
-    <input type="text" class="form-control" id="expense-date" placeholder="Enter the Date of the Expense">
+    <input type="text" class="form-control" id="expense-date" class="datepicker" placeholder="Enter the Date of the Expense">
   </div>
 
   <button type="submit" class="btn btn-success">Budge It</button>
@@ -53,3 +54,5 @@
   </d>
   <!-- Custom Script -->
   <script src="js/expense.js" type="text/javascript"></script>
+  <script src="js/app.js" type="text/javascript"></script>
+  
