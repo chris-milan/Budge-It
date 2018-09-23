@@ -52,8 +52,23 @@ window.onload=function(){
     // newTr.append('<td># of posts will display when we learn joins in the next activity!</td>');
     // newTr.append('<td><a href=\'/blog?expense_id=' + expenseData.id + '\'>Go to Posts</a></td>');
     // newTr.append('<td><a href=\'/cms?expense_id=' + expenseData.id + '\'>Create a Post</a></td>');
-    newTr.append('<td><a style=\'cursor:pointer;color:red\' class=\'delete-expense\'>Delete Expense</a></td>');
+    newTr.append('<td><a style=\'cursor:pointer;color:blue\' class=\'delete-expense\'>Delete Expense</a></td>');
+
+    //adds name and cost and finds date to put into fullcalendar
+    var event={id:1 , title: expenseData.name + '\xa0\xa0\xa0\xa0\xa0\xa0' + '$' + expenseData.cost, start:  expenseData.date};
+    console.log(expenseData.name);
+
+    $('#calendar').fullCalendar( 'renderEvent', event, true);
+
     return newTr;
+
+    for (var i = 0, max = expenseData.length; i < max; i++){
+      var event={id:1 , title: expenseData.name, start:  expenseData.date};
+      console.log(expenseData.name);
+
+      // $('#calendar').fullCalendar( 'renderEvent', event, true);
+    }
+
   }
 
   // Function for retrieving expenses and getting them ready to be rendered to the page
@@ -94,6 +109,7 @@ window.onload=function(){
   function handleDeleteButtonPress() {
     var listItemData = $(this).parent('td').parent('tr').data('expense');
     var id = listItemData.id;
+    location.reload();
     $.ajax({
       method: 'DELETE',
       url: '/api/expenses/' + id
