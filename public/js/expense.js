@@ -47,7 +47,7 @@ window.onload=function(){
     var newTr = $('<tr>');
     newTr.data('expense', expenseData);
     newTr.append('<td>' + expenseData.name + '</td>');
-    newTr.append('<td>' + expenseData.cost + '</td>');
+    newTr.append('<td>' + '$' + expenseData.cost + '</td>');
     newTr.append('<td>' + expenseData.date + '</td>');
     // newTr.append('<td># of posts will display when we learn joins in the next activity!</td>');
     // newTr.append('<td><a href=\'/blog?expense_id=' + expenseData.id + '\'>Go to Posts</a></td>');
