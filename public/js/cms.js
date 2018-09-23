@@ -1,4 +1,4 @@
-$(document).ready(function() {
+window.onload=function(){
   // Getting jQuery references to the post body, title, form, and expense select
   var bodyInput = $('#body');
   var titleInput = $('#title');
@@ -129,4 +129,4 @@ $(document).ready(function() {
         window.location.href = '/blog';
       });
   }
-});
+};
