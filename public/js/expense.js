@@ -1,6 +1,9 @@
 window.onload=function(){
-  // Getting references to the name inout and expense container, as well as the table body
+  // Getting references to the name, date and cost inputs and expense container, as well as the table body
   var nameInput = $('#expense-name');
+  var costInput = $('#expense-cost');
+  var dateInput = $('#expense-date');
+
   var expenseList = $('tbody');
   var expenseContainer = $('.expense-container');
   // Adding event listeners to the form to create a new object, and the button to delete
@@ -15,12 +18,18 @@ window.onload=function(){
   function handleExpenseFormSubmit(event) {
     event.preventDefault();
     // Don't do anything if the name fields hasn't been filled out
-    if (!nameInput.val().trim().trim()) {
+    if (!nameInput.val().trim().trim() || !costInput.val().trim() || !dateInput.val().trim()) {
       return;
     }
     // Calling the upsertExpense function and passing in the value of the name input
     upsertExpense({
       name: nameInput
+        .val()
+        .trim(),
+      cost: costInput
+        .val()
+        .trim(),
+      date: dateInput
         .val()
         .trim()
     });
@@ -38,9 +47,11 @@ window.onload=function(){
     var newTr = $('<tr>');
     newTr.data('expense', expenseData);
     newTr.append('<td>' + expenseData.name + '</td>');
-    newTr.append('<td># of posts will display when we learn joins in the next activity!</td>');
-    newTr.append('<td><a href=\'/blog?expense_id=' + expenseData.id + '\'>Go to Posts</a></td>');
-    newTr.append('<td><a href=\'/cms?expense_id=' + expenseData.id + '\'>Create a Post</a></td>');
+    newTr.append('<td>' + expenseData.cost + '</td>');
+    newTr.append('<td>' + expenseData.date + '</td>');
+    // newTr.append('<td># of posts will display when we learn joins in the next activity!</td>');
+    // newTr.append('<td><a href=\'/blog?expense_id=' + expenseData.id + '\'>Go to Posts</a></td>');
+    // newTr.append('<td><a href=\'/cms?expense_id=' + expenseData.id + '\'>Create a Post</a></td>');
     newTr.append('<td><a style=\'cursor:pointer;color:red\' class=\'delete-expense\'>Delete Expense</a></td>');
     return newTr;
   }
@@ -54,6 +65,8 @@ window.onload=function(){
       }
       renderExpenseList(rowsToAdd);
       nameInput.val('');
+      costInput.val('');
+      dateInput.val('');
     });
   }
 
@@ -63,7 +76,7 @@ window.onload=function(){
     expenseContainer.children('.alert').remove();
     if (rows.length) {
       console.log(rows);
-      expenseList.prepend(rows);
+      expenseList.append(rows);
     } else {
       renderEmpty();
     }

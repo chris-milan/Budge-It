@@ -115,6 +115,8 @@ window.onload=function(){
     var listOption = $('<option>');
     listOption.attr('value', expense.id);
     listOption.text(expense.name);
+    listOption.text(expense.cost);
+    listOption.text(expense.date);
     return listOption;
   }
 
