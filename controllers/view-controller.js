@@ -16,8 +16,8 @@ const db = require("../models");
 
 
 
-router.get('/blog', renderBlog);
-router.get('/', renderBlog);
+router.get('/expenses', renderExpense);
+router.get('/', renderExpense);
 
 // cms route loads cms.html
 router.get("/cms", function (req, res) {
@@ -30,7 +30,7 @@ router.get("/expenses", function (req, res) {
 
 
 // helper for / and blog routes
-function renderBlog(req, res) {
+function renderExpense(req, res) {
   var query = {};
   if (req.query.expense_id) {
     query.ExpenseId = req.query.expense_id;
