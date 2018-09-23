@@ -1,4 +1,4 @@
-$(document).ready(function() {
+window.onload=function(){
   /* global moment */
 
   // blogContainer holds all of our posts
@@ -51,4 +51,4 @@ $(document).ready(function() {
     blogContainer.append(messageh2);
   }
 
-});
+};

@@ -1,4 +1,4 @@
-$(document).ready(function() {
+window.onload=function(){
   // Getting references to the name inout and expense container, as well as the table body
   var nameInput = $('#expense-name');
   var expenseList = $('tbody');
@@ -87,4 +87,4 @@ $(document).ready(function() {
     })
       .then(getExpenses);
   }
-});
+};
