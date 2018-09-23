@@ -3,9 +3,13 @@ window.onload=function(){
   var nameInput = $('#expense-name');
   var costInput = $('#expense-cost');
   var dateInput = $('#expense-date');
-
+  var sum = 0;
+  var arr = [];
+  var billCycle = 30;
   var expenseList = $('tbody');
   var expenseContainer = $('.expense-container');
+  var stats = document.getElementById('statsList');
+  var income = document.getElementById('');
   // Adding event listeners to the form to create a new object, and the button to delete
   // an Expense
   $(document).on('submit', '#expense-form', handleExpenseFormSubmit);
@@ -61,12 +65,17 @@ window.onload=function(){
     $.get('/api/expenses', function(data) {
       var rowsToAdd = [];
       for (var i = 0; i < data.length; i++) {
+        var expNum = data[i].cost;
+        sum += parseInt(expNum);
         rowsToAdd.push(createExpenseRow(data[i]));
       }
       renderExpenseList(rowsToAdd);
       nameInput.val('');
       costInput.val('');
       dateInput.val('');
+      console.log(sum);
+      console.log(sum/billCycle);
+      console.log(sum%billCycle);
     });
   }
 
