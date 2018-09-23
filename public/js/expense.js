@@ -17,21 +17,15 @@ window.onload=function(){
   // A function to handle what happens when the form is submitted to create a new Expense
   function handleExpenseFormSubmit(event) {
     event.preventDefault();
-    // Don't do anything if the name fields hasn't been filled out
-    if (!nameInput.val().trim().trim() || !costInput.val().trim() || !dateInput.val().trim()) {
+    // Don't do anything if the name, cost or date fields haven't been filled out
+    if (!nameInput.val().trim() || !costInput.val().trim() || !dateInput.val().trim()) {
       return;
     }
     // Calling the upsertExpense function and passing in the value of the name input
     upsertExpense({
-      name: nameInput
-        .val()
-        .trim(),
-      cost: costInput
-        .val()
-        .trim(),
-      date: dateInput
-        .val()
-        .trim()
+      name: nameInput.val().trim(),
+      cost: costInput.val().trim(),
+      date: dateInput.val().trim()
     });
   }
 
@@ -43,6 +37,12 @@ window.onload=function(){
 
   // Function for creating a new list row for expenses
   function createExpenseRow(expenseData) {
+    // for (var i = 0, max = expenseData.length; i < max; i++){
+    //   var event={title: expenseData.name[i], start:  expenseData.date[i]};
+    //   // console.log(expenseData.name);
+
+    //   // $('#calendar').fullCalendar( 'renderEvent', event, true);
+    // }
     console.log(expenseData);
     var newTr = $('<tr>');
     newTr.data('expense', expenseData);
@@ -54,20 +54,38 @@ window.onload=function(){
     // newTr.append('<td><a href=\'/cms?expense_id=' + expenseData.id + '\'>Create a Post</a></td>');
     newTr.append('<td><a style=\'cursor:pointer;color:blue\' class=\'delete-expense\'>Delete Expense</a></td>');
 
+    // var calendarData = [];
+    // jQuery.each(expenseData, function(index, item){
+    //   if(item.repeat == 0){
+    //     //normal
+    //   }else if(item.repeat == 1){
+    //     //use dow property
+    //   }else if(item.repeat == 2){
+
+
+
+    //     jQuery.each([-12,-11,-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10,11,12], function(index, item){
+    //       //normal but change start property
+    //       calendarData.push({
+    //         id:item.id,
+    //         type:item.type,
+    //         title:item.title,
+    //         start:moment(item.datetime).add(item,'M').format('Y-MM-DD H:mm')
+    //       });
+    //     });
+    //   }
+    // });
+
     //adds name and cost and finds date to put into fullcalendar
-    var event={id:1 , title: expenseData.name + '\xa0\xa0\xa0\xa0\xa0\xa0' + '$' + expenseData.cost, start:  expenseData.date};
+    var event={title: expenseData.name + '\xa0\xa0\xa0\xa0\xa0\xa0' + '$' + expenseData.cost, start: expenseData.date};
+
     console.log(expenseData.name);
 
     $('#calendar').fullCalendar( 'renderEvent', event, true);
 
     return newTr;
 
-    for (var i = 0, max = expenseData.length; i < max; i++){
-      var event={id:1 , title: expenseData.name, start:  expenseData.date};
-      console.log(expenseData.name);
 
-      // $('#calendar').fullCalendar( 'renderEvent', event, true);
-    }
 
   }
 
@@ -91,7 +109,7 @@ window.onload=function(){
     expenseContainer.children('.alert').remove();
     if (rows.length) {
       console.log(rows);
-      expenseList.append(rows);
+      expenseList.prepend(rows);
     } else {
       renderEmpty();
     }
@@ -117,3 +135,61 @@ window.onload=function(){
       .then(getExpenses);
   }
 };
+
+
+// var initialize_calendar;
+// initialize_calendar = function() {
+//   $('#calendar').each(function(){
+//     var calendar = $(this);
+//     calendar.fullCalendar({
+//       header: {
+//         left: 'prev,next today',
+//         center: 'title',
+//         right: 'month,agendaWeek,agendaDay'
+//       },
+//       selectable: true,
+//       selectHelper: true,
+//       editable: true,
+//       eventLimit: true,
+//       eventSources: [
+//         '/events.json',
+//         '/recurring_events.json'
+//       ],
+//       select: function(start, end) {
+//         $.getScript('/events/new', function() {
+//           $('#event_date_range').val(moment(start).format('MM/DD/YYYY HH:mm') + ' - ' + moment(end).format('MM/DD/YYYY HH:mm'));
+//           date_range_picker();
+//           $('.start_hidden').val(moment(start).format('YYYY-MM-DD HH:mm'));
+//           $('.end_hidden').val(moment(end).format('YYYY-MM-DD HH:mm'));
+//         });
+
+//         calendar.fullCalendar('unselect');
+//       },
+
+//       eventDrop: function(event, delta, revertFunc) {
+//         event_data = {
+//           event: {
+//             id: event.id,
+//             start: event.start.format(),
+//             end: event.end.format()
+//           }
+//         };
+//         $.ajax({
+//           url: event.update_url,
+//           data: event_data,
+//           type: 'PATCH'
+//         });
+//       },
+
+//       eventClick: function(event, jsEvent, view) {
+//         $.getScript(event.edit_url, function() {
+//           $('#event_date_range').val(moment(event.start).format('MM/DD/YYYY HH:mm') + ' - ' + moment(event.end).format('MM/DD/YYYY HH:mm'));
+//           date_range_picker();
+//           $('.start_hidden').val(moment(event.start).format('YYYY-MM-DD HH:mm'));
+//           $('.end_hidden').val(moment(event.end).format('YYYY-MM-DD HH:mm'));
+//         });
+//       }
+//     });
+//   });
+// };
+// $(document).on('turbolinks:load', initialize_calendar);
