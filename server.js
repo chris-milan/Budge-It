@@ -25,7 +25,6 @@ app.use(bodyParser.json());
 // Static directory
 app.use(express.static("public"));
 
-
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
