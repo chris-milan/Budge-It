@@ -1,11 +1,11 @@
 $(document).ready(function() {
   // Getting jQuery references to the post body, title, form, and expense select
-  var bodyInput = $("#body");
-  var titleInput = $("#title");
-  var cmsForm = $("#cms");
-  var expenseSelect = $("#expense");
+  var bodyInput = $('#body');
+  var titleInput = $('#title');
+  var cmsForm = $('#cms');
+  var expenseSelect = $('#expense');
   // Adding an event listener for when the form is submitted
-  $(cmsForm).on("submit", handleFormSubmit);
+  $(cmsForm).on('submit', handleFormSubmit);
   // Gets the part of the url that comes after the "?" (which we have if we're updating a post)
   var url = window.location.search;
   var postId;
@@ -15,13 +15,13 @@ $(document).ready(function() {
 
   // If we have this section in our url, we pull out the post id from the url
   // In '?post_id=1', postId is 1
-  if (url.indexOf("?post_id=") !== -1) {
-    postId = url.split("=")[1];
-    getPostData(postId, "post");
+  if (url.indexOf('?post_id=') !== -1) {
+    postId = url.split('=')[1];
+    getPostData(postId, 'post');
   }
   // Otherwise if we have an expense_id in our url, preset the expense select box to be our Expense
-  else if (url.indexOf("?expense_id=") !== -1) {
-    expenseId = url.split("=")[1];
+  else if (url.indexOf('?expense_id=') !== -1) {
+    expenseId = url.split('=')[1];
   }
 
   // Getting the expenses, and their posts
@@ -50,16 +50,15 @@ $(document).ready(function() {
     if (updating) {
       newPost.id = postId;
       updatePost(newPost);
-    }
-    else {
+    } else {
       submitPost(newPost);
     }
   }
 
   // Submits a new post and brings user to blog page upon completion
   function submitPost(post) {
-    $.post("/api/posts", post, function() {
-      window.location.href = "/blog";
+    $.post('/api/posts', post, function() {
+      window.location.href = '/blog';
     });
   }
 
@@ -67,18 +66,18 @@ $(document).ready(function() {
   function getPostData(id, type) {
     var queryUrl;
     switch (type) {
-      case "post":
-        queryUrl = "/api/posts/" + id;
-        break;
-      case "expense":
-        queryUrl = "/api/expenses/" + id;
-        break;
-      default:
-        return;
+    case 'post':
+      queryUrl = '/api/posts/' + id;
+      break;
+    case 'expense':
+      queryUrl = '/api/expenses/' + id;
+      break;
+    default:
+      return;
     }
     $.get(queryUrl, function(data) {
       if (data) {
-        console.log(data.ExpenseId || data.id)
+        console.log(data.ExpenseId || data.id);
         // If this post exists, prefill our cms forms with its data
         titleInput.val(data.title);
         bodyInput.val(data.body);
@@ -92,13 +91,13 @@ $(document).ready(function() {
 
   // A function to get Expenses and then render our list of Expenses
   function getExpenses() {
-    $.get("/api/expenses", renderExpenseList);
+    $.get('/api/expenses', renderExpenseList);
   }
   // Function to either render a list of expenses, or if there are none, direct the user to the page
   // to create an expense first
   function renderExpenseList(data) {
     if (!data.length) {
-      window.location.href = "/expenses";
+      window.location.href = '/expenses';
     }
     var rowsToAdd = [];
     for (var i = 0; i < data.length; i++) {
@@ -113,8 +112,8 @@ $(document).ready(function() {
 
   // Creates the expense options in the dropdown
   function createExpenseRow(expense) {
-    var listOption = $("<option>");
-    listOption.attr("value", expense.id);
+    var listOption = $('<option>');
+    listOption.attr('value', expense.id);
     listOption.text(expense.name);
     return listOption;
   }
@@ -122,12 +121,12 @@ $(document).ready(function() {
   // Update a given post, bring user to the blog page when done
   function updatePost(post) {
     $.ajax({
-      method: "PUT",
-      url: "/api/posts",
+      method: 'PUT',
+      url: '/api/posts',
       data: post
     })
-    .then(function() {
-      window.location.href = "/blog";
-    });
+      .then(function() {
+        window.location.href = '/blog';
+      });
   }
 });
