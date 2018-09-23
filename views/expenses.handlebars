@@ -14,31 +14,13 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>Expense Name</th>
-              <th># of Posts</th>
-              <th>See Expense</th>
-              <th>New Post</th>
+              <th>Name</th>
+              <th>Cost</th>
+              <th>Date</th>
               <th>Delete Expense</th>
             </tr>
           </thead>
           <tbody>
-            <tr id="form-row">
-              <form id="expense-form">
-
-                <td colspan="4">
-                  <input placeholder="Enter the Name of the Expense" id="expense-name" type="text" />
-                </td>
-                <td colspan="4">
-                  <input placeholder="Enter the Cost of the Expense" id="expense-cost" type="number" />
-                </td>
-                <td>
-                  <button type="submit" class="btn btn-success">Budge It</button>
-                </td>
-              </form>
-            </tr>
-          </tbody>
-        </table>
-
  <form id="expense-form">
   <div class="form-group">
 
@@ -47,17 +29,21 @@
   </div>
   <div class="form-group">
     <label for="inputCost">Cost Name</label>
-    <input type="text" class="form-control" id="inputCost" placeholder="Enter the Cost of the Expense">
+    <input type="text" class="form-control" id="expense-cost" placeholder="Enter the Cost of the Expense">
   </div>
 
   <div class="form-group">
     <label for="inputDate">Date</label>
-    <input type="text" class="form-control" id="inputDate" placeholder="Enter the Date of the Expense">
+    <input type="text" class="form-control" id="expense-date" placeholder="Enter the Date of the Expense">
   </div>
 
   <button type="submit" class="btn btn-success">Budge It</button>
 
 </form>
+          </tbody>
+        </table>
+
+
 
 
 
