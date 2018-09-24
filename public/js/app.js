@@ -1,26 +1,57 @@
-// $('#calendar').fullCalendar({
-//   contentHeight: 1000
-// });
+// Paralax Effect
+function scrollFooter(scrollY, heightFooter) {
+  //   console.log(scrollY);
+  //   console.log(heightFooter);
 
-// $('#calendar').fullCalendar({
-//   aspectRatio: 2
-// });
+  if (scrollY >= heightFooter) {
+    $("footer").css({
+      bottom: "0px"
+    });
+  } else {
+    $("footer").css({
+      bottom: "-" + heightFooter + "px"
+    });
+  }
+}
 
-// $(function(){
-//   var $calendar = $('#calendar');
-//   $calendar.fullCalendar({
-//     windowResize: function() {
-//       var ww = $(window).width();
-//       var view = (ww <= 768) ? 'basicDay' : 'month';
-//       var currentView = $('#calendar').fullCalendar('getView');
-//       if(view != currentView){
-//         $calendar.fullCalendar('changeView',view);
-//       }
-//       if(ww <= 768){
-//         $calendar.find('.fc-header-right .fc-button').hide();
-//       }else{
-//         $calendar.find('.fc-header-right .fc-button').show();
-//       }
-//     }
-//   });
-// });
+$(window).load(function() {
+  var windowHeight = $(window).height(),
+    footerHeight = $("footer").height(),
+    heightDocument =
+      windowHeight + $(".content").height() + $("footer").height() - 20;
+
+  $("#scroll-animate, #scroll-animate-main").css({
+    height: heightDocument + "px"
+  });
+
+  $("header").css({
+    height: windowHeight + "px",
+    "line-height": windowHeight + "px"
+  });
+
+  $(".wrapper-parallax").css({
+    "margin-top": windowHeight + "px"
+  });
+
+  scrollFooter(window.scrollY, footerHeight);
+
+  window.onscroll = function() {
+    var scroll = window.scrollY;
+
+    $("#scroll-animate-main").css({
+      top: "-" + scroll + "px"
+    });
+
+    $("header").css({
+      "background-position-y": 50 - (scroll * 100) / heightDocument + "%"
+    });
+
+    scrollFooter(scroll, footerHeight);
+  };
+
+  /*!
+   * Sign Up/Login Box v0.0.1 (https://codepen.io/koheishingai/FLvgs)
+   * Copyright 2014 Kohei Shingai.
+   * Licensed under MIT 
+   */
+});

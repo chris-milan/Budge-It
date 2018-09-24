@@ -24,7 +24,7 @@ router.get("/api/posts", function (req, res) {
   });
 });
 
-// Get rotue for retrieving a single post
+// Get route for retrieving a single post
 router.get("/api/posts/:id", function (req, res) {
   db.Post.findOne({
     where: {

@@ -14,23 +14,15 @@ const db = require("../models");
 
 // Each of the below routes just handles the HTML page that the user gets sent to.
 
-
-
-router.get('/blog', renderBlog);
-router.get('/', renderBlog);
-
-// cms route loads cms.html
-router.get("/cms", function (req, res) {
-  res.render('cms');
-});
+router.get('/home', renderHome);
+router.get('/', renderHome);
 
 router.get("/expenses", function (req, res) {
   res.render('expenses');
 });
 
-
-// helper for / and blog routes
-function renderBlog(req, res) {
+// helper for / and home routes
+function renderHome(req, res) {
   var query = {};
   if (req.query.expense_id) {
     query.ExpenseId = req.query.expense_id;
@@ -39,7 +31,7 @@ function renderBlog(req, res) {
     where: query,
     include: [db.Expense]
   }).then(function (posts) {
-    res.render('blog', { posts: posts })
+    res.render('home', { posts: posts })
   });
 }
 
