@@ -20,9 +20,6 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-
-
-
   // set up associations if you want to use includes
   // when serving up json from your routes
   

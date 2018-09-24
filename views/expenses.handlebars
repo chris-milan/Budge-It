@@ -1,74 +1,71 @@
+<section class="expense-content">
 
-<div class="container">
+  <div class="calendar-container" id="inline">
 
-  {{!-- <div class="row top-30">
-    <div class="col-md-2 col-sm-2">
-      <a class="btn btn-default" href="/blog">Go to Blog</a>
+    {{!-- Full Calendar --}}
+    <div id="calendar"></div>
+
+    <div class="expense-info-container">
+
+      <form id="expense-form">
+        <a class="expenses-text">Expenses</a>
+
+     <label for="expense-name"><span>Expense
+            Name</span></label>    <input type="text" class="form-control input-style" id="expense-name">
+
+
+<label for="expense-cost"><span>Monthly
+            Payment</span></label>
+        <input type="text" class="form-control input-style" id="expense-cost"> 
+
+
+
+<label for="expense-date"><span>Date</span></label>
+        <input type="text" class="form-control input-style datepicker" id="expense-date">
+        
+
+        <button type="submit" class="btn btn-success">Budge It</button>
+
+      </form>
+
     </div>
-    <div class="col-md-2 col-sm-2">
-      <a class="btn btn-default" href="/cms">New Post</a>
-    </div>
-  </div> --}}
-  <div class="row">
 
-    <div id='calendar' class="col-md-8 col-md-offset-2"></div>
-    <div class="col-md-8 col-md-offset-2">
-      <div class="expense-container">
-        <h1>Expenses</h1>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Cost</th>
-              <th>Date</th>
-              <th>Delete Expense</th>
-            </tr>
-          </thead>
-          <tbody>
-            <div id='statsList'>
-              <span id='statIncome'>
-{{!-- monthly income --}}
-              </span>
-              <span id='statExpense'>
-{{!-- total expenses --}}
-              </span>
-              <span id='statDay'>
-{{!-- savings per day --}}
-              </span>
-              <span id='statRemainder'>
-{{!-- amt saved after billing cycle --}}
-              </span>
-            </div>
- <form id="expense-form">
-  <div class="form-group">
-
-    <label for="expense-name">Expense Name</label>
-    <input type="text" class="form-control" id="expense-name" placeholder="Enter the Name of the Expense">
   </div>
-  <div class="form-group">
-    <label for="inputCost">Monthly Payment</label>
-    <input type="text" class="form-control" id="expense-cost" placeholder="Enter the Cost of the Expense">
-  </div>
+  <div class="expense-list">
+    <table class="table table-striped list">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Cost</th>
+          <th>Date</th>
+          <th>Delete Expense</th>
+        </tr>
+      </thead>
+      <tbody>
+        <div id='statsList'>
+          <span id='statIncome'>
+            {{!-- monthly income --}}
+          </span>
+          <span id='statExpense'>
+            {{!-- total expenses --}}
+          </span>
+          <span id='statDay'>
+            {{!-- savings per day --}}
+          </span>
+          <span id='statRemainder'>
+            {{!-- amt saved after billing cycle --}}
+          </span>
+        </div>
 
-  <div class="form-group">
-    <label for="inputDate">Date</label>
-    <input type="text" class="form-control" id="expense-date" class="datepicker" placeholder="Enter the Date of the Expense">
-  </div>
-
-  <button type="submit" class="btn btn-success">Budge It</button>
-
-</form>
-  </tbody>
+      </tbody>
     </table>
-
-
-
-
-
-      </div>
-    </div>
   </div>
-  
-  <!-- Custom Script -->
-  <script src="js/app.js" type="text/javascript" media="print"></script>
-  <script src="js/expense.js" type="text/javascript"></script>
+
+</section>
+
+{{!-- Custom Script --}}
+<script src="js/expense.js" type="text/javascript"></script>
+
+{{!-- Custom Style Sheets --}}
+<link href='css/fullcalendar.min.css' rel='stylesheet' />
+<link rel="stylesheet" href="css/styles-expenses.css" media="screen" title="no title">
