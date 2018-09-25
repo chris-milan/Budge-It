@@ -1,4 +1,5 @@
 window.onload=function(){
+
   // Getting references to the name, date and cost inputs and expense container, as well as the table body
   var nameInput = $('#expense-name');
   var costInput = $('#expense-cost');

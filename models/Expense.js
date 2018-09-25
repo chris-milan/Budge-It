@@ -5,6 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING,
     cost: DataTypes.DECIMAL(10,2),
     date: DataTypes.DATEONLY,
+    signup: DataTypes.DATEONLY,
+    contract:DataTypes.INTEGER
 
   });
 

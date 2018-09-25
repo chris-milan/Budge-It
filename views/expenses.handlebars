@@ -1,65 +1,72 @@
+<div class="hero-bkg-animated">
+
+</div>
+
 <section class="expense-content">
-
+  {{!-- Full Calendar --}}
+  <div id="calendar"></div>
   <div class="calendar-container" id="inline">
-
-    {{!-- Full Calendar --}}
-    <div id="calendar"></div>
 
     <div class="expense-info-container">
 
       <form id="expense-form">
-        <a class="expenses-text">Expenses</a>
+ 
 
-     <label for="expense-name"><span>Expense
-            Name</span></label>    <input type="text" class="form-control input-style" id="expense-name">
+        <form id="expense-form">
+          <a class="expenses-text">Expenses</a>
+          
+          <input type="text" name="name" class="input-style" id="expense-name" required autocomplete="off" />
+          <label for="expense-name"><span>Name of Expense</span></label>
+
+          <input type="text" name="name" class="input-style" id="expense-cost" required autocomplete="off" />
+          <label for="expense-cost"><span>Monthly Payment</span></label>
+
+          <input type="text" name="name" class="input-style datepicker" id="expense-date" required autocomplete="off" />
+          <label for="expense-date"><span>Date when Bill starts this Month <a class="date-text">(DD/MM/YYYY)</a></span></label>
+
+          <input type="text" name="name" class="input-style" id="contract-length" required autocomplete="off" />
+          <label for="contract-length"><span>Contract Length in Months</span></label>   
+
+          <button type="submit" class="btn btn-success">Budge It</button>
+
+        </form>
 
 
-<label for="expense-cost"><span>Monthly
-            Payment</span></label>
-        <input type="text" class="form-control input-style" id="expense-cost"> 
-
-
-
-<label for="expense-date"><span>Date</span></label>
-        <input type="text" class="form-control input-style datepicker" id="expense-date">
-        
-
-        <button type="submit" class="btn btn-success">Budge It</button>
-
-      </form>
 
     </div>
 
-  </div>
-  <div class="expense-list">
-    <table class="table table-striped list">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Cost</th>
-          <th>Date</th>
-          <th>Delete Expense</th>
-        </tr>
-      </thead>
-      <tbody>
-        <div id='statsList'>
-          <span id='statIncome'>
-            {{!-- monthly income --}}
-          </span>
-          <span id='statExpense'>
-            {{!-- total expenses --}}
-          </span>
-          <span id='statDay'>
-            {{!-- savings per day --}}
-          </span>
-          <span id='statRemainder'>
-            {{!-- amt saved after billing cycle --}}
-          </span>
-        </div>
+    <div class="expense-list">
+      <table class="table table-striped list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Cost</th>
+            <th>Date</th>
+            <th>Delete Expense</th>
+          </tr>
+        </thead>
+        <tbody>
+          <div id='statsList'>
+            <span id='statIncome'>
+              {{!-- monthly income --}}
+            </span>
+            <span id='statExpense'>
+              {{!-- total expenses --}}
+            </span>
+            <span id='statDay'>
+              {{!-- savings per day --}}
+            </span>
+            <span id='statRemainder'>
+              {{!-- amt saved after billing cycle --}}
+            </span>
+          </div>
 
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
+
   </div>
+
 
 </section>
 
