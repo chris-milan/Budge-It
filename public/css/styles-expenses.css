@@ -1,28 +1,57 @@
+html,
 body {
-    background: url(../images/jussara-romao-345661-unsplash.jpg) no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+
+    background: url(../images/congruent_pentagon.png);
+    repeat 0 0;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    height: 300px;
+    padding-top: 20px;
+    box-sizing: border-box;
+    -webkit-animation: slide 20s linear infinite;
 }
 
+
+@-webkit-keyframes slide {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -400px 0;
+    }
+}
+
+.fc-title {
+    font-size:15px;
+    color:#999999
+}
 
 #calendar {
-    width: 50%;
+    width: 60%;
     z-index: 1;
+    margin: auto;
+    width: 85%;
+    border: 3px solid green;
+    font-family:monospace;
+    padding: 10px;
     position: relative;
-    font-size: 11px;
-    border: inset rgb(165, 196, 236);
-    opacity: .91;
-
+    font-size: 20px;
+    border: ridge rgb(165, 196, 236);
+    opacity: .81;
     background: linear-gradient(135deg, #fdbb78 0%, #ff765f 100%);
 }
+
+.date-text {
+    font-size:18px
+}
+
 
 #inline {
     margin-top: 20px;
     width: 100%;
     height: auto;
-
     display: flex;
 }
 
@@ -34,18 +63,17 @@ body {
 }
 
 .expense-info-container {
-padding: 15px;
+    padding: 15px;
 }
-
 
 #expense-form {
     padding: 25px;
-    background: linear-gradient(135deg, #78fdeb 0%, #5f8aff 100%);
+    /* background: linear-gradient(135deg, #78fdeb 0%, #5f8aff 100%); */
 }
 
 .expenses-text {
     font-size: 111px;
-    text-align: center;
+    text-align: left;
     font-family: 'IBM Plex Sans', sans-serif;
     color: #999999;
 }

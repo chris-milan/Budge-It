@@ -321,7 +321,7 @@ a[data-goto]:hover {
 
 .fc-event,
 .fc-event-dot {
-    background-color: #3a87ad
+    background-color:#BEF8CF;
 }
 
 .fc-event,
@@ -573,7 +573,8 @@ a.fc-more:hover {
 }
 
 .fc-unthemed td.fc-today {
-    background: #cdbfd8
+    background: rgb(245, 188, 153);
+  
 }
 
 .fc-unthemed .fc-disabled-day {
