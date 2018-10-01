@@ -76,6 +76,7 @@ body {
     text-align: left;
     font-family: 'IBM Plex Sans', sans-serif;
     color: #999999;
+    text-shadow: 1px 1px 2px #000000;
 }
 
 .expense-list {
@@ -228,3 +229,52 @@ textarea.input-style:invalid~input[type="submit"] {
         opacity: 1;
     }
 }
+
+
+.budgeIt-button {
+    background: #3D94F6;
+    background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: linear-gradient(to bottom, #3D94F6, #1E62D0);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #FFAE00;
+
+    padding: 40px;
+    box-shadow: 1px 1px 20px 0px #000000;
+    -webkit-box-shadow: 1px 1px 20px 0px #000000;
+    -moz-box-shadow: 1px 1px 20px 0px #000000;
+    text-shadow: 1px 1px 2px #000000;
+    border: solid #337FED 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+ }
+ 
+ .budgeIt-button:hover {
+    background: #1E62D0;
+    background-image: linear-gradient(135deg, #fdbb78 0%, #ff765f 100%;
+    background-image: -moz-linear-gradient(top, #1E62D0, #3D94F6);
+    background-image: -ms-linear-gradient(top, #1E62D0, #3D94F6);
+    background-image: -o-linear-gradient(top, #1E62D0, #3D94F6);
+    background-image: linear-gradient(to bottom, #1E62D0, #3D94F6);
+    text-decoration: none;
+ }
+
+ .logo-budge {
+      font-size: 222px;
+    font-family: 'Alfa Slab One', cursive;
+    color: rgb(40, 215, 63);
+    opacity: .73;
+   
+  }
+  
+  .logo-it {
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #FEFF05;
+    font-size: 222px;
+    opacity: .93;
+  }

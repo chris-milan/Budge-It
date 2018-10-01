@@ -1,20 +1,13 @@
 window.onload=function(){
 
-//   $('html, body').animate({
-//     scrollTop: $('#contract-length').offset().top
-// }, 'slow');
-
   // Getting references to the name, date and cost inputs and expense container, as well as the table body
   var nameInput = $('#expense-name');
   var costInput = $('#expense-cost');
   var dateInput = $('#expense-date');
-  var sum = 0;
-  var arr = [];
-  var billCycle = 30;
+
   var expenseList = $('tbody');
   var expenseContainer = $('.expense-container');
-  var stats = document.getElementById('statsList');
-  var income = document.getElementById('');
+ 
 
   // Adding event listeners to the form to create a new object, and the button to delete
   // an Expense
@@ -41,6 +34,7 @@ window.onload=function(){
 
   // A function for creating an expense. Calls getExpenses upon completion
   function upsertExpense(expenseData) {
+    location.reload();
     $.post('/api/expenses', expenseData)
       .then(getExpenses);
   }
@@ -48,7 +42,6 @@ window.onload=function(){
   // Function for creating a new list row for expenses
   function createExpenseRow(expenseData) {
 
-    console.log(expenseData);
     var newTr = $('<tr>');
     newTr.data('expense', expenseData);
     newTr.append('<td>' + expenseData.name + '</td>');
@@ -61,7 +54,7 @@ window.onload=function(){
     var event={title: expenseData.name + ':' + '\xa0\xa0\xa0' + '$' + expenseData.cost, start: expenseData.date};
 
     $('#calendar').fullCalendar( 'renderEvent', event, true);
-
+    
     return newTr;
   }
 
@@ -70,17 +63,12 @@ window.onload=function(){
     $.get('/api/expenses', function(data) {
       var rowsToAdd = [];
       for (var i = 0; i < data.length; i++) {
-        var expNum = data[i].cost;
-        sum += parseInt(expNum);
         rowsToAdd.push(createExpenseRow(data[i]));
       }
       renderExpenseList(rowsToAdd);
       nameInput.val('');
       costInput.val('');
       dateInput.val('');
-      console.log(sum);
-      console.log(sum/billCycle);
-      console.log(sum%billCycle);
     });
   }
 
@@ -89,7 +77,6 @@ window.onload=function(){
     expenseList.children().not(':last').remove();
     expenseContainer.children('.alert').remove();
     if (rows.length) {
-      console.log(rows);
       expenseList.prepend(rows);
     } else {
       renderEmpty();
@@ -102,10 +89,6 @@ window.onload=function(){
     alertDiv.addClass('alert alert-danger');
     alertDiv.text('You must create an Expense before you can create a Post.');
     expenseContainer.append(alertDiv);
-
-    events = [ { title  : 'event1', start  : '2015-11-01' } ];
-    $('#calendar').fullCalendar({ events: events });
-    $('#calendar').fullCalendar( 'refetchEvents' );
   }
 
   // Function for handling what happens when the delete button is pressed
