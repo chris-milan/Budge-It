@@ -23,6 +23,7 @@ When the devlopment is complete, this site will tell you the amount of money to 
 
 - In your terminal, Navigate to the Budge-it Folder and type the following to initiate the site:
 **npm i**
+
 **npm run dev**
 
 - Run the site on your local server in your browser on: localhost:3000
