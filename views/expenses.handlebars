@@ -4,17 +4,17 @@
 
 <section class="expense-content">
   {{!-- Full Calendar --}}
-  <div id="calendar" class="flex-container"></div>
+  <div id="calendar"></div>
   <div class="calendar-container" id="inline">
 
     <div class="expense-info-container">
 
       <form id="expense-form">
- 
+
 
         <form id="expense-form">
           <a class="expenses-text">Expenses</a>
-          
+
           <input type="text" name="name" class="input-style" id="expense-name" required autocomplete="off" />
           <label for="expense-name"><span>Name of Expense</span></label>
 
@@ -22,10 +22,8 @@
           <label for="expense-cost"><span>Monthly Payment</span></label>
 
           <input type="text" name="name" class="input-style datepicker" id="expense-date" required autocomplete="off" />
-          <label for="expense-date"><span>Date when Bill starts this Month <a class="date-text">(DD/MM/YYYY)</a></span></label>
-
-          <input type="text" name="name" class="input-style" id="contract-length" required autocomplete="off" />
-          <label for="contract-length"><span>Contract Length in Months</span></label>   
+          <label for="expense-date"><span>Date when the Bill starts<a class="date-text">    
+          &nbsp;&nbsp;&nbsp; (DD/MM/YYYY)</a></span></label>
 
           <button type="submit" class="btn btn-success">Budge It</button>
 
@@ -46,20 +44,7 @@
           </tr>
         </thead>
         <tbody>
-          <div id='statsList'>
-            <span id='statIncome'>
-              {{!-- monthly income --}}
-            </span>
-            <span id='statExpense'>
-              {{!-- total expenses --}}
-            </span>
-            <span id='statDay'>
-              {{!-- savings per day --}}
-            </span>
-            <span id='statRemainder'>
-              {{!-- amt saved after billing cycle --}}
-            </span>
-          </div>
+
 
         </tbody>
       </table>
