@@ -19,13 +19,13 @@ When the devlopment is complete, this site will tell you the amount of money to 
     "dialect": "mysql"
   }
 - In Sequel, Create a DB with the following command:
->**create expenses_db;**
+**create expenses_db;**
 
 - In your terminal, Navigate to the Budge-it Folder and type the following to initiate the site:
->**npm i**
+**npm i**
 **npm run dev**
 
-- Run the site on your local server in your browser on: localhost:3030;
+- Run the site on your local server in your browser on: localhost:3000
 
 ## Contributers
 
