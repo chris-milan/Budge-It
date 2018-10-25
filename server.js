@@ -6,6 +6,8 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
+var mysql = require('mysql');
+
 require("dotenv").config();
 const _ = require("lodash");
 const util = require('util')
