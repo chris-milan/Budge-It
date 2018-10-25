@@ -32,7 +32,7 @@ function renderHome(req, res) {
   //   include: [db.Expense]
   // }).then(function (posts) {
   //   res.render('home', { posts: posts })
-  });
-}
+  };
+
 
 module.exports = router;
