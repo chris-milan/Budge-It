@@ -18,6 +18,17 @@ const request = require('request');
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'password',
+    database: 'budgeit_db'
+  });
+};
+
 // Requiring our models for syncing
 var db = require("./models");
 
@@ -403,7 +414,7 @@ function start_analysis() {
 
 
 
-    // Function to return array of due dates accounting for holidays that may affect banking hours. 
+    // Function to return array of due dates accounting for holidays that may affect banking hours.
     function finalDueDates() {
       var tempObj = {};
       // for loop goes through our weekend adjusted due dates and analyzes if any of the dates match a holiday and if so then moves the due date 1 day back.
@@ -512,7 +523,7 @@ Current Month Holidays: ${withHolidaysAcounted(month)}
 
 Number of Bills This Month: ${bills.length}
 ================================
-`); 
+`);
 
 
     // db.Expense
@@ -525,7 +536,7 @@ Number of Bills This Month: ${bills.length}
 
     //     /*
     //      findOrCreate returns an array containing the object that was found or created and a boolean that will be true if a new object was created and false if not, like so:
-    
+
     //     [ {
     //         username: 'sdepold',
     //         job: 'Technical Lead JavaScript',
@@ -534,7 +545,7 @@ Number of Bills This Month: ${bills.length}
     //         updatedAt: Fri Mar 22 2013 21: 28: 34 GMT + 0100(CET)
     //       },
     //       true ]
-    
+
     //  In the example above, the "spread" on line 39 divides the array into its 2 parts and passes them as arguments to the callback function defined beginning at line 39, which treats them as "user" and "created" in this case. (So "user" will be the object from index 0 of the returned array and "created" will equal "true".)
     //     */
     //   })
