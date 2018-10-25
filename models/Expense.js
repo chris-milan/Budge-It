@@ -19,7 +19,7 @@ module.exports = function (sequelize, DataTypes) {
     oct: DataTypes.DATEONLY,
     nov: DataTypes.DATEONLY,
     dec: DataTypes.DATEONLY,
-  
+
 
   });
 

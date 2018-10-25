@@ -7,7 +7,7 @@ window.onload=function(){
 
   var expenseList = $('tbody');
   var expenseContainer = $('.expense-container');
- 
+
 
   // Adding event listeners to the form to create a new object, and the button to delete
   // an Expense
@@ -54,7 +54,7 @@ window.onload=function(){
     var event={title: expenseData.name + ':' + '\xa0\xa0\xa0' + '$' + expenseData.cost, start: expenseData.date};
 
     $('#calendar').fullCalendar( 'renderEvent', event, true);
-    
+
     return newTr;
   }
 
@@ -106,7 +106,7 @@ window.onload=function(){
       .then(getExpenses);
   }
 
-//removes week and day buttons from calendar
+  //removes week and day buttons from calendar
   $('#calendar').fullCalendar({
     header: {
 
