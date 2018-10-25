@@ -27,11 +27,11 @@ function renderHome(req, res) {
   if (req.query.expense_id) {
     query.ExpenseId = req.query.expense_id;
   }
-  db.Post.findAll({
-    where: query,
-    include: [db.Expense]
-  }).then(function (posts) {
-    res.render('home', { posts: posts })
+  // db.Post.findAll({
+  //   where: query,
+  //   include: [db.Expense]
+  // }).then(function (posts) {
+  //   res.render('home', { posts: posts })
   });
 }
 
