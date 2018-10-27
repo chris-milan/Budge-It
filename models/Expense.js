@@ -4,20 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING,
     cost: DataTypes.DECIMAL(10, 2),
     date: DataTypes.DATEONLY,
-    date2: DataTypes.DATEONLY,
-    dailyAmount: DataTypes.DECIMAL(10, 2),
-    totalBillsSum: DataTypes.DECIMAL(10, 2),
-    jan: DataTypes.DATEONLY,
-    feb: DataTypes.DATEONLY,
-    mar: DataTypes.DATEONLY,
-    apr: DataTypes.DATEONLY,
-    jun: DataTypes.DATEONLY,
-    jul: DataTypes.DATEONLY,
-    aug: DataTypes.DATEONLY,
-    sep: DataTypes.DATEONLY,
-    oct: DataTypes.DATEONLY,
-    nov: DataTypes.DATEONLY,
-    dec: DataTypes.DATEONLY
+    dailyAmountUntilPaid: DataTypes.DECIMAL(10, 2)
   });
 
   return Expense;

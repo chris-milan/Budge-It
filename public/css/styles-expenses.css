@@ -1,280 +1,108 @@
-html,
 body {
+    background: url(../images/grid_@2X.png);
+    font-family: 'Yantramanav', sans-serif;
+    margin:0;
+    padding:0
+}
 
-    background: url(../images/congruent_pentagon.png);
-    repeat 0 0;
-    width: 100%;
-    margin: 0;
+.expense-header {
     text-align: center;
-    height: 300px;
-    padding-top: 20px;
-    box-sizing: border-box;
-    -webkit-animation: slide 20s linear infinite;
+    background-color: lightgray;
+    margin-top: -50px;
+    background: url(../images/real_cf_@2X.png);
+    -webkit-box-shadow: 2px 2px 3px 4px lightblue;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    2px 2px 3px 4px lightblue;  /* Firefox 3.5 - 3.6 */
+    box-shadow:         2px 2px 3px 4px lightblue;
 }
 
-
-@-webkit-keyframes slide {
-    from {
-        background-position: 0 0;
-    }
-
-    to {
-        background-position: -400px 0;
-    }
-}
-
-.fc-title {
-    font-size:15px;
-    color:#999999
-}
-
-#calendar {
-    width: 60%;
-    z-index: 1;
-    margin: auto;
-    width: 85%;
-    border: 3px solid green;
-    font-family:monospace;
-    padding: 10px;
-    position: relative;
-    font-size: 20px;
-    border: ridge rgb(165, 196, 236);
-    opacity: .81;
-    background: linear-gradient(135deg, #fdbb78 0%, #ff765f 100%);
-}
-
-.date-text {
-    font-size:18px
-}
-
-
-#inline {
-    margin-top: 20px;
-    width: 100%;
-    height: auto;
-    display: flex;
-}
-
-.calendar-container,
-.expense-info-container {
-    width: 50%;
-    height: 100px;
-    margin: 10px;
-}
-
-.expense-info-container {
-    padding: 15px;
-}
-
-#expense-form {
-    padding: 25px;
-    /* background: linear-gradient(135deg, #78fdeb 0%, #5f8aff 100%); */
-}
-
-.expenses-text {
-    font-size: 111px;
-    text-align: left;
-    font-family: 'IBM Plex Sans', sans-serif;
-    color: #999999;
-    text-shadow: 1px 1px 2px #000000;
-}
-
-.expense-list {
-    background: linear-gradient(135deg, #78fdeb 0%, #5f8aff 100%);
-    margin: 10px;
-
-}
-
-/* Input Boxes */
-
-input,
-span,
-label,
-textarea {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    display: block;
-    margin: 10px;
-    padding: 5px;
-    border: none;
-    font-size: 22px;
-}
-
-textarea:focus,
-input:focus {
-    outline: 0;
-}
-
-/* input-style */
-
-input.input-style,
-textarea.input-style {
-    font-size: 48px;
-    font-weight: 300;
-    border-radius: 2px;
-    margin: 0;
-    border: none;
-    width: 80%;
-    background: rgba(0, 0, 0, 0);
-    transition: padding-top 0.2s ease, margin-top 0.2s ease;
-    overflow-x: hidden;
-    /* Hack to make "rows" attribute apply in Firefox. */
-}
-
-/* Underline and Placeholder */
-
-input.input-style+label,
-textarea.input-style+label {
-    display: block;
-    position: relative;
-    white-space: nowrap;
-    padding: 0;
-    margin: 0;
-    width: 10%;
-    border-top: 1px solid red;
-    -webkit-transition: width 0.4s ease;
-    transition: width 0.4s ease;
-    height: 0px;
-}
-
-input.input-style:focus+label,
-textarea.input-style:focus+label {
-    width: 80%;
-}
-
-input.input-style:focus,
-input.input-style:valid {
-    padding-top: 35px;
-}
-
-textarea.input-style:valid,
-textarea.input-style:focus {
-    margin-top: 35px;
-}
-
-input.input-style:focus+label>span,
-input.input-style:valid+label>span {
-    top: -100px;
-    font-size: 22px;
-    color: #333;
-}
-
-textarea.input-style:focus+label>span,
-textarea.input-style:valid+label>span {
-    top: -150px;
-    font-size: 22px;
-    color: #333;
-}
-
-input.input-style:valid+label,
-textarea.input-style:valid+label {
-    border-color: green;
-}
-
-input.input-style:invalid,
-textarea.input-style:invalid {
-    box-shadow: none;
-}
-
-input.input-style+label>span,
-textarea.input-style+label>span {
-    font-weight: 300;
-    margin: 0;
-    position: absolute;
-    color: #8F8F8F;
-    font-size: 48px;
-    top: -66px;
-    left: 0px;
-    z-index: -1;
-    -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
-    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
-}
-
-input[type="submit"] {
-    -webkit-transition: opacity 0.2s ease, background 0.2s ease;
-    transition: opacity 0.2s ease, background 0.2s ease;
-    display: block;
-    opacity: 0;
-    margin: 10px 0 0 0;
-    padding: 10px;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background: #EEE;
-}
-
-input[type="submit"]:active {
-    background: #999;
-}
-
-input.input-style:valid~input[type="submit"],
-textarea.input-style:valid~input[type="submit"] {
-    -webkit-animation: appear 1s forwards;
-    animation: appear 1s forwards;
-}
-
-input.input-style:invalid~input[type="submit"],
-textarea.input-style:invalid~input[type="submit"] {
-    display: none;
-}
-
-@-webkit-keyframes appear {
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes appear {
-    100% {
-        opacity: 1;
-    }
-}
-
-
-.budgeIt-button {
-    background: #3D94F6;
-    background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
-    background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
-    background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
-    background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
-    background-image: linear-gradient(to bottom, #3D94F6, #1E62D0);
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-    color: #FFAE00;
-
-    padding: 40px;
-    box-shadow: 1px 1px 20px 0px #000000;
-    -webkit-box-shadow: 1px 1px 20px 0px #000000;
-    -moz-box-shadow: 1px 1px 20px 0px #000000;
-    text-shadow: 1px 1px 2px #000000;
-    border: solid #337FED 1px;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
- }
- 
- .budgeIt-button:hover {
-    background: #1E62D0;
-    background-image: linear-gradient(135deg, #fdbb78 0%, #ff765f 100%;
-    background-image: -moz-linear-gradient(top, #1E62D0, #3D94F6);
-    background-image: -ms-linear-gradient(top, #1E62D0, #3D94F6);
-    background-image: -o-linear-gradient(top, #1E62D0, #3D94F6);
-    background-image: linear-gradient(to bottom, #1E62D0, #3D94F6);
-    text-decoration: none;
- }
-
- .logo-budge {
-      font-size: 222px;
+.logo-budge {
     font-family: 'Alfa Slab One', cursive;
     color: rgb(40, 215, 63);
     opacity: .73;
-   
-  }
-  
-  .logo-it {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 150px;
+    height: 150px;
+    text-shadow: 2px 2px lightblue;
+    letter-spacing: 6px;
+}
+
+.logo-it {
     font-family: 'IBM Plex Sans', sans-serif;
     color: #FEFF05;
-    font-size: 222px;
+    font-size: 75px;
     opacity: .93;
-  }
+    text-align: center;
+    vertical-align: middle;
+    line-height: 150px;
+    height: 150px;
+    text-shadow: 2px 2px lightblue;
+    letter-spacing: 6px;
+}
+
+.row {
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+}
+
+.col {
+    padding: 60px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    margin-top: 30px;
+}
+
+.expenses-info {
+    background: linear-gradient(135deg, rgb(235, 233, 233) 0%, white 100%);
+}
+
+
+#expense-form {
+    padding: 25px;
+        background: linear-gradient(135deg, rgb(235, 233, 233) 0%, white 100%);
+    text-align: center
+}
+
+.expense-list-text {
+    font-size: 40px;
+
+}
+
+.savings-text {
+    font-size: 30px;
+    text-align: center
+}
+
+.current-expenses {
+    font-size: 30px
+}
+
+.expenses-text {
+    font-size: 65px;
+    /* text-align: left; */
+    color: #999999;
+    text-shadow: 2px 2px 2px #000000;
+}
+
+#calendar {
+    z-index: 1;
+    margin: auto;
+    width: 88%;
+    border: 3px solid green;
+    padding: 30px;
+    position: relative;
+    font-size: 28px;
+    border: ridge rgb(165, 196, 236);
+    /* opacity: .81; */
+    background-color: white;
+    background: linear-gradient(135deg, rgb(235, 233, 233) 0%, white 100%);
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+/* Calender Boxes Text  */
+.fc-content {
+    color: black;
+    padding: 10px;
+    background-color: lightgray;
+}
+

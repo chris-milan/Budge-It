@@ -1,19 +1,12 @@
-<div class="hero-bkg-animated">
-
+<div class ="expense-header">
+ <h1><a class="logo-budge">BUDGE</a><a class="logo-it"> IT!</a></h1>
 </div>
 
-<section class="expense-content">
-  {{!-- Full Calendar --}}
-  <div id="calendar"></div>
-  <div class="calendar-container" id="inline">
-
-    <div class="expense-info-container">
-
-      <form id="expense-form">
-
+<div class="row">
+    <div class="col s12 expenses-input">
 
         <form id="expense-form">
-          <a class="expenses-text">Expenses</a>
+          <a class="expenses-text">Add an Expense</a>
 
           <input type="text" name="name" class="input-style" id="expense-name" required autocomplete="off" />
           <label for="expense-name"><span>Name of Expense</span></label>
@@ -22,38 +15,37 @@
           <label for="expense-cost"><span>Monthly Payment</span></label>
 
           <input type="text" name="name" class="input-style datepicker" id="expense-date" required autocomplete="off" />
-          <label for="expense-date"><span>Date when the Bill starts<a class="date-text">    
-          &nbsp;&nbsp;&nbsp; (DD/MM/YYYY)</a></span></label>
-
+          <label for="expense-date"><span>Date when the Bill starts<a class="date-text">
+          &nbsp;&nbsp;&nbsp; (MM/DD/YYYY)</a></span></label>
+            <br/>
+            <br/>
+            <br/>
           <button type="submit" class="btn btn-success">Budge It</button>
-
         </form>
-
-
-
     </div>
 
-    <div class="expense-list">
-      <table class="table table-striped list">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Cost</th>
-            <th>Date</th>
-            <th>Delete Expense</th>
-          </tr>
-        </thead>
-        <tbody>
-
-
-        </tbody>
-      </table>
-    </div>
-
+  <div class="col s12 expenses-info">
+         <a class="expenses-text">Current Expenses</a>
+          <hr>
+        <table class="striped" class="flow-text expense-list">
+            <thead>
+                <tr class="expense-list-text">
+                    <td>Name</td>
+                    <td>Cost</td>
+                    <td>Date</td>
+                    <td class="savings-text">Savings Needed Until Payday </td>
+                    <td>Delete Expense</td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
   </div>
+</div>
 
 
-</section>
+{{!-- Full Calendar --}}
+<div id="calendar"></div>
+
 
 {{!-- Custom Script --}}
 <script src="js/expense.js" type="text/javascript"></script>
@@ -61,3 +53,4 @@
 {{!-- Custom Style Sheets --}}
 <link href='css/fullcalendar.min.css' rel='stylesheet' />
 <link rel="stylesheet" href="css/styles-expenses.css" media="screen" title="no title">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">

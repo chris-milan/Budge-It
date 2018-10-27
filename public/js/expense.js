@@ -34,7 +34,9 @@ window.onload=function(){
 
   // A function for creating an expense. Calls getExpenses upon completion
   function upsertExpense(expenseData) {
-    location.reload();
+
+    window.location = window.location;
+
     $.post('/api/expenses', expenseData)
       .then(getExpenses);
   }
@@ -42,13 +44,14 @@ window.onload=function(){
   // Function for creating a new list row for expenses
   function createExpenseRow(expenseData) {
 
-    var newTr = $('<tr>');
+    var newTr = $('<tr class="current-expenses">');
     newTr.data('expense', expenseData);
     newTr.append('<td>' + expenseData.name + '</td>');
     newTr.append('<td>' + '$' + expenseData.cost + '</td>');
     newTr.append('<td>' + expenseData.date + '</td>');
+    newTr.append('<td style="text-align: center">' + '$' + expenseData.dailyAmountUntilPaid + '</td>');
 
-    newTr.append('<td><a style=\'cursor:pointer;color:blue\' class=\'delete-expense\'>Delete Expense</a></td>');
+    newTr.append('<td><a style=\'cursor:pointer;color:blue\' class=\'delete-expense\'>Delete</a></td>');
 
     //adds name and cost and finds date to put into fullcalendar
     var event={title: expenseData.name + ':' + '\xa0\xa0\xa0' + '$' + expenseData.cost, start: expenseData.date};
@@ -78,10 +81,12 @@ window.onload=function(){
     expenseContainer.children('.alert').remove();
     if (rows.length) {
       expenseList.prepend(rows);
+
     } else {
       renderEmpty();
     }
   }
+
 
   // Function for handling what to render when there are no expenses
   function renderEmpty() {
@@ -96,8 +101,8 @@ window.onload=function(){
 
     var listItemData = $(this).parent('td').parent('tr').data('expense');
     var id = listItemData.id;
-
-    location.reload();
+    
+    window.location.href=window.location.href;
 
     $.ajax({
       method: 'DELETE',
