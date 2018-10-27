@@ -1,6 +1,6 @@
 # Budge It
 _Budge It_ is a website  that can help you stay on top of your monthly bills.
-[Deployed Link](https://morning-earth-26620.herokuapp.com)
+[Deployed Link](https://budge-it-nw.herokuapp.com/)
 
 ## Usage:
 
